@@ -1,0 +1,2498 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Contact Tracing Application API Docs",
+    "description": "API Documentation for the Contact Tracing Application",
+    "contact": {
+      "name": "Pagdumala.ph",
+      "email": "andrestineboter15@gmail.com"
+    },
+    "license": {
+      "name": "Copyright Pagdumala.ph 2022. All rights reserved."
+    },
+    "version": "v.1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://dev-api-pagdumala.herokuapp.com/api",
+      "description": "Development server"
+    }
+  ],
+  "security": [
+    {
+      "AdminToken": []
+    },
+    {
+      "IndividualToken": []
+    },
+    {
+      "EstablishmentToken": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Pre-registers"
+    },
+    {
+      "name": "Admins"
+    },
+    {
+      "name": "Establishments"
+    },
+    {
+      "name": "Individuals"
+    },
+    {
+      "name": "Transactions"
+    }
+  ],
+  "paths": {
+    "/admin-users/log-in": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Log-in Admin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "username": "admin123",
+                    "password": "password123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMTIzNCIsImlkIjoiNjI4NjA3YzljOTY5NTAyZjM5MWY4MmJlIiwiaWF0IjoxNjUzOTI3MDkwfQ.c0sEzGDWIp9H5glq_h3vHXHfe6TS0pYMoITns8-Wxus",
+                  "username": "admin123",
+                  "id": "628607c9c969502f391f82be"
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/establishment-users/log-in": {
+      "post": {
+        "tags": [
+          "Establishments"
+        ],
+        "summary": "Log-in Establishment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "username": "estab123",
+                    "password": "password123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMTIzNCIsImlkIjoiNjI4NjA3YzljOTY5NTAyZjM5MWY4MmJlIiwiaWF0IjoxNjUzOTI3MDkwfQ.c0sEzGDWIp9H5glq_h3vHXHfe6TS0pYMoITns8-Wxus",
+                  "username": "estab123",
+                  "id": "628607c9c969502f391f82be"
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/individual-users/log-in": {
+      "post": {
+        "tags": [
+          "Individuals"
+        ],
+        "summary": "Log-in Individual",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "examples": {
+                "example": {
+                  "value": {
+                    "username": "indiv123",
+                    "password": "password123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMTIzNCIsImlkIjoiNjI4NjA3YzljOTY5NTAyZjM5MWY4MmJlIiwiaWF0IjoxNjUzOTI3MDkwfQ.c0sEzGDWIp9H5glq_h3vHXHfe6TS0pYMoITns8-Wxus",
+                  "username": "indiv123",
+                  "id": "628607c9c969502f391f82be"
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre-register/persons/profile": {
+      "post": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Pre-register Individual",
+        "description": "In order to use the application, a person needs to pre-register first and will be asessed and verified by admins if that person is eligible to use the application.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "middleName": {
+                    "type": "string"
+                  },
+                  "suffix": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "birthDate": {
+                    "type": "string"
+                  },
+                  "contactNumber": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "province": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "barangay": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  },
+                  "resident": {
+                    "type": "boolean"
+                  },
+                  "file": {
+                    "type": "any",
+                    "description": "A picture that proves the existence of the person. The primary reference for verifying persons using the application."
+                  }
+                },
+                "required": [
+                  "username",
+                  "password",
+                  "firstName",
+                  "lastName",
+                  "middleName",
+                  "gender",
+                  "birthDate",
+                  "contactNumber",
+                  "province",
+                  "city",
+                  "barangay",
+                  "street",
+                  "resident",
+                  "file"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "John Citizen is now Pre-registered.",
+                  "data": {
+                    "id": "628607c9c969502f391f82be",
+                    "imageId": "627407c9c969502f391f82eq"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre-register/persons/{preIndividualId}": {
+      "put": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Update pre-registered Individual",
+        "description": "Updates pre-registered Individuals' data. Mostly used whenever admins find out minor errors such as spelling.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preIndividualId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "middleName": {
+                    "type": "string"
+                  },
+                  "suffix": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "birthDate": {
+                    "type": "string"
+                  },
+                  "contactNumber": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "province": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "barangay": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  },
+                  "resident": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Updated Pre-registered Individual."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Get specific pre-registered Individual",
+        "description": "Retrieve a specific pre-registered Individual",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preIndividualId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": 
+                  {
+                      "username": "keirthjames123",
+                      "passwordHash": "$2b$10$pppujWIlai1nbVJcyc62OuJupd42lZ/RqZUNp4owp.ogQO0ZGsTfa",
+                      "firstName": "Keirth James",
+                      "lastName": "Nabasca",
+                      "suffix": "",
+                      "middleName": "Biador",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772186",
+                      "email": "keirthjames.nabasca@g.msuiit.edu.ph",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "id": "628608b2c969502f391f82c8"
+                  }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Delete pre-registered Individual",
+        "description": "Deletes a specific pre-registered Individual. This means that this pre-registered Individual is not eligible to use the applciation",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preIndividualId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "keirthjames123 deleted"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre-register/persons": {
+      "get": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Get all pre-registered Individuals",
+        "description": "Retrieve all the pre-registered Individuals",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                      "username": "keirthjames123",
+                      "passwordHash": "$2b$10$pppujWIlai1nbVJcyc62OuJupd42lZ/RqZUNp4owp.ogQO0ZGsTfa",
+                      "firstName": "Keirth James",
+                      "lastName": "Nabasca",
+                      "suffix": "",
+                      "middleName": "Biador",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772186",
+                      "email": "keirthjames.nabasca@g.msuiit.edu.ph",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "id": "628608b2c969502f391f82c8"
+                  },
+                  {
+                      "username": "anthonyjames123",
+                      "passwordHash": "$2b$10$gkQ5kJ8uPfMLBFhV1fJVJeZHqSKj.flnDXPGksFrKmHaAIF/rmrMO",
+                      "firstName": "Anthony James",
+                      "lastName": "Nabasca",
+                      "suffix": "",
+                      "middleName": "Biador",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772186",
+                      "email": "anthonyjames123.nabasca@g.msuiit.edu.ph",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "id": "62860a46c969502f391f82d4"
+                  },
+                  {
+                      "username": "andrestineluke123",
+                      "passwordHash": "$2b$10$ss05g91lz3vgsJjL3LcKZ.kOGEfk3qExM2EcC5jrDz.PWdCKp0iXG",
+                      "firstName": "Andrestine Luke",
+                      "lastName": "Boter",
+                      "suffix": "",
+                      "middleName": "Narag",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772187",
+                      "email": "andrestineluke123.nabasca@g.msuiit.edu.ph",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "id": "62860a99c969502f391f82e0"
+                  },
+                  {
+                      "username": "homerbacanto123",
+                      "passwordHash": "$2b$10$BE1ByTNQzQC7g5Fh17B9cuoOqPprx59beN4wDdbqaMYGrlqbbcuQu",
+                      "firstName": "Homer ",
+                      "lastName": "Bacanto",
+                      "suffix": "",
+                      "middleName": "Simpsons",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772183",
+                      "email": "homerbacanto123.nabasca@g.msuiit.edu.ph",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "id": "62860ba4c969502f391f82f8"
+                  }
+              ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre-register/persons/view/image/{fileId}": {
+      "get": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Get pre-registered Individual image",
+        "description": "Retrieve pre-registered Individual's image for verification",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "fileId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": "**** [IMAGE DISPLAY] ****"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre-register/establishments": {
+      "post": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Pre-register Establishment",
+        "description": "In order to use the application, an establishment needs to pre-register first and will be asessed and verified by admins if that establishment is eligible to use the application.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "string"
+                  },
+                  "hotlineNumber": {
+                    "type": "string"
+                  },
+                  "barangay": {
+                    "type": "string"
+                  },
+                  "province": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  },
+                  "file": {
+                    "type": "any",
+                    "description": "A picture that proves the existence of the establishment. The primary reference for verifying establishments using the application."
+                  }
+                },
+                "required": [
+                  "username",
+                  "password",
+                  "name",
+                  "mobileNumberNumber",
+                  "province",
+                  "city",
+                  "barangay",
+                  "street",
+                  "file"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "East Coast Library is now Pre-registered.",
+                  "data": {
+                    "id": "628607c9c969502f391f82be",
+                    "imageId": "627407c9c969502f391f82eq"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Get all pre-registered Individuals",
+        "description": "Retrieve all the pre-registered Individuals",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                      "username": "msuiit123",
+                      "passwordHash": "$2b$10$crlP2phuqtZDMRXTdi25IeoHGb/c5AaWc7t1SOnzEoRUiJupqc65O",
+                      "name": "MSU-IIT",
+                      "type": "School",
+                      "mobileNumber": "639772772187",
+                      "hotlineNumber": "289-87777",
+                      "barangay": "San Jose",
+                      "city": "Iligan City",
+                      "province": "Lanao Del Norte",
+                      "street": "Quirino Street",
+                      "id": "62860c63c969502f391f8304"
+                  },
+                  {
+                      "username": "coet1234",
+                      "passwordHash": "$2b$10$SjGsyyoJSFQfnzOHAFwp7.uQzaqUFLN7VoLdDkL6AIsUiseKyJFge",
+                      "name": "College of Engineering & Technology",
+                      "type": "College ",
+                      "mobileNumber": "639772772186",
+                      "hotlineNumber": "289-87777",
+                      "barangay": "San Jose",
+                      "city": "Iligan City",
+                      "province": "Lanao Del Norte",
+                      "street": "Quirino Street",
+                      "id": "62860ce3c969502f391f8311"
+                  },
+                  {
+                      "username": "library123",
+                      "passwordHash": "$2b$10$OR8RziZT6QWKVahuWFsn/uzU0IdjonZTZJk.sSQQAds.6B3y0YJQa",
+                      "name": "MSU-IIT Library",
+                      "type": "Library",
+                      "mobileNumber": "639772772186",
+                      "hotlineNumber": "289-87777",
+                      "barangay": "San Jose",
+                      "city": "Iligan City",
+                      "province": "Lanao Del Norte",
+                      "street": "Quirino Street",
+                      "id": "62860d4fc969502f391f831e"
+                  }
+              ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre-register/establishments/{preEstablishmentId}": {
+      "put": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Update pre-registered Establishments",
+        "description": "Updates pre-registered Establishments' data. Mostly used whenever admins find out minor errors such as spelling.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preEstablishmentId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "string"
+                  },
+                  "hotlineNumber": {
+                    "type": "string"
+                  },
+                  "barangay": {
+                    "type": "string"
+                  },
+                  "province": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Updated Pre-registered Individuak."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Get specific pre-registered Establishment",
+        "description": "Retrieve a specific pre-registered Establishment",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preEstablishmentId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "username": "msuiit123",
+                  "passwordHash": "$2b$10$crlP2phuqtZDMRXTdi25IeoHGb/c5AaWc7t1SOnzEoRUiJupqc65O",
+                  "name": "MSU-IIT",
+                  "type": "School",
+                  "mobileNumber": "639772772187",
+                  "hotlineNumber": "289-87777",
+                  "barangay": "San Jose",
+                  "city": "Iligan City",
+                  "province": "Lanao Del Norte",
+                  "street": "Quirino Street",
+                  "id": "62860c63c969502f391f8304"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Delete pre-registered Establisment",
+        "description": "Deletes a specific pre-registered Establisment. This means that this pre-registered Establisment is not eligible to use the applciation",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preEstablishmentId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "msuiit123 deleted"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pre-register/establishments/view/image/{fileId}": {
+      "get": {
+        "tags": [
+          "Pre-registers"
+        ],
+        "summary": "Get pre-registered Establishment image",
+        "description": "Retrieve pre-registered Establishment's image for verification",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "fileId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": "**** [IMAGE DISPLAY] ****"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin-users/{adminAccountId}/change-username": {
+      "put": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Update Admin Username",
+        "description": "Changes an admin's account username.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "adminAccountId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "Username updated." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin-users/{adminAccountId}/change-password": {
+      "put": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Update Admin Password",
+        "description": "Changes an admin's account password.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "adminAccountId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "Password updated." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/establishment-users/{establishmentAccountId}/change-username": {
+      "put": {
+        "tags": [
+          "Establishments"
+        ],
+        "summary": "Update Establishment Username",
+        "description": "Changes an Establishment's account username.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "establishmentAccountId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "Username updated." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/establishment-users/{establishmentAccountId}/change-password": {
+      "put": {
+        "tags": [
+          "Establishments"
+        ],
+        "summary": "Update Establishment Password",
+        "description": "Changes an Establishment's account password.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "establishmentAccountId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "Password updated." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/individual-users/{individualAccountId}/change-username": {
+      "put": {
+        "tags": [
+          "Individuals"
+        ],
+        "summary": "Update Individual Username",
+        "description": "Changes an Individual's account username.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "individualAccountId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "Username updated." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/individual-users/{individualAccountId}/change-password": {
+      "put": {
+        "tags": [
+          "Individuals"
+        ],
+        "summary": "Update Individual Password",
+        "description": "Changes an Individual's account password.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "individualAccountId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": { "message": "Password updated." }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons/sign-up/{preIndividualId}": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Verify Pre-registered Individual",
+        "description": "Verifies a pre-registered Individual. This means the pre-registered Individual is now eligible to use the application.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preIndividualId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "accountId": "62861356c969502f391f8355",
+                  "firstName": "Keirth James",
+                  "lastName": "Nabasca",
+                  "middleName": "Biador",
+                  "suffix": "",
+                  "gender": "Male",
+                  "birthDate": "October 23, 1997",
+                  "contactNumber": "639772772186",
+                  "email": "keirthjames.nabasca@g.msuiit.edu.ph",
+                  "status": "positive",
+                  "province": "Zamboanga del Sur",
+                  "city": "Pagadian City",
+                  "barangay": "Tiguma",
+                  "street": "Zone 4",
+                  "resident": false,
+                  "special": false,
+                  "transactionLevelOne": [],
+                  "transactionLevelTwo": [],
+                  "transactionLevelThree": [],
+                  "id": "62861356c969502f391f8357"
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/establishments/sign-up/{preEstablishmentId}": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Verify Pre-registered Establishment",
+        "description": "Verifies a pre-registered Establishment. This means the pre-registered Establishment is now eligible to use the application.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "preEstablishmentId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "accountId": "6286147bc969502f391f8375",
+                  "name": "College of Engineering & Technology",
+                  "type": "School",
+                  "level": 2,
+                  "mobileNumber": "639772772186",
+                  "province": "Lanao Del Norte",
+                  "city": "Iligan City",
+                  "barangay": "San Jose",
+                  "street": "Quirino Street",
+                  "transactionLevelOne": [],
+                  "transactionLevelTwo": [],
+                  "transactionLevelThree": [],
+                  "rooms": [],
+                  "teachers": [],
+                  "pending": [],
+                  "id": "6286147cc969502f391f8379"
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/establishments": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Get all Establishments",
+        "description": "Retrieves all Establishments registered in the application. (Responses are limited due to privacy issues)",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                      "id": "62861438c969502f391f836e",
+                      "accountId": "62861438c969502f391f836a",
+                      "name": "MSU-IIT",
+                      "type": "University",
+                      "level": 1,
+                      "mobileNumber": "639772772187",
+                      "province": "Lanao Del Norte",
+                      "city": "Iligan City",
+                      "barangay": "San Jose",
+                      "street": "Quirino Street",
+                      "transactions": [
+                          {
+                              "person": {
+                                  "firstName": "Keirth James",
+                                  "lastName": "Nabasca",
+                                  "id": "62861356c969502f391f8357"
+                              },
+                              "date": 1652962513,
+                              "status": "negative",
+                              "login": 1652962513,
+                              "logout": 1652965256,
+                              "id": "628634d174c3ffad2bac443f"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Jonas",
+                                  "lastName": "Serino",
+                                  "id": "6286287774c3ffad2bac440b"
+                              },
+                              "date": 1652962611,
+                              "status": "negative",
+                              "login": 1652962611,
+                              "logout": 1652965243,
+                              "id": "6286353274c3ffad2bac4447"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Andrestine Luke",
+                                  "lastName": "Boter",
+                                  "id": "628613bcc969502f391f835e"
+                              },
+                              "date": 1652962708,
+                              "status": "negative",
+                              "login": 1652962708,
+                              "logout": 1652965147,
+                              "id": "6286359474c3ffad2bac444f"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Anthony James",
+                                  "lastName": "Nabasca",
+                                  "id": "62862ae174c3ffad2bac4431"
+                              },
+                              "date": 1652962817,
+                              "status": "negative",
+                              "login": 1652962817,
+                              "logout": 1652965048,
+                              "id": "6286360174c3ffad2bac4457"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Homer ",
+                                  "lastName": "Bacanto",
+                                  "id": "628613d8c969502f391f8365"
+                              },
+                              "date": 1652962917,
+                              "status": "negative",
+                              "login": 1652962917,
+                              "logout": 1652964950,
+                              "id": "6286366474c3ffad2bac445f"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Jefferson",
+                                  "lastName": "Enterina",
+                                  "id": "6286296974c3ffad2bac441e"
+                              },
+                              "date": 1652963023,
+                              "status": "negative",
+                              "login": 1652963023,
+                              "logout": 1652964849,
+                              "id": "628636ce74c3ffad2bac4467"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "6286147cc969502f391f8379",
+                      "accountId": "6286147bc969502f391f8375",
+                      "name": "College of Engineering & Technology",
+                      "type": "School",
+                      "level": 2,
+                      "mobileNumber": "639772772186",
+                      "province": "Lanao Del Norte",
+                      "city": "Iligan City",
+                      "barangay": "San Jose",
+                      "street": "Quirino Street",
+                      "transactions": [
+                          {
+                              "person": {
+                                  "firstName": "Keirth James",
+                                  "lastName": "Nabasca",
+                                  "id": "62861356c969502f391f8357"
+                              },
+                              "date": 1652963117,
+                              "status": "negative",
+                              "login": 1652963117,
+                              "logout": 1652964750,
+                              "id": "6286372d74c3ffad2bac446f"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Anthony James",
+                                  "lastName": "Nabasca",
+                                  "id": "62862ae174c3ffad2bac4431"
+                              },
+                              "date": 1652963236,
+                              "status": "negative",
+                              "login": 1652963236,
+                              "logout": 1652964644,
+                              "id": "628637a474c3ffad2bac4477"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Homer ",
+                                  "lastName": "Bacanto",
+                                  "id": "628613d8c969502f391f8365"
+                              },
+                              "date": 1652963350,
+                              "status": "negative",
+                              "login": 1652963350,
+                              "logout": 1652964539,
+                              "id": "6286381574c3ffad2bac447f"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Jonas",
+                                  "lastName": "Serino",
+                                  "id": "6286287774c3ffad2bac440b"
+                              },
+                              "date": 1652963464,
+                              "status": "negative",
+                              "login": 1652963464,
+                              "logout": 1652964441,
+                              "id": "6286388874c3ffad2bac4487"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Jefferson",
+                                  "lastName": "Enterina",
+                                  "id": "6286296974c3ffad2bac441e"
+                              },
+                              "date": 1652963586,
+                              "status": "negative",
+                              "login": 1652963586,
+                              "logout": 1652964353,
+                              "id": "6286390174c3ffad2bac448f"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "628614a8c969502f391f8384",
+                      "accountId": "628614a8c969502f391f8380",
+                      "name": "MSU-IIT Library",
+                      "type": "Library",
+                      "level": 3,
+                      "mobileNumber": "639772772186",
+                      "province": "Lanao Del Norte",
+                      "city": "Iligan City",
+                      "barangay": "San Jose",
+                      "street": "Quirino Street",
+                      "transactions": [
+                          {
+                              "person": {
+                                  "firstName": "Keirth James",
+                                  "lastName": "Nabasca",
+                                  "id": "62861356c969502f391f8357"
+                              },
+                              "date": 1652963689,
+                              "status": "negative",
+                              "login": 1652963689,
+                              "logout": 1652964263,
+                              "id": "6286396974c3ffad2bac4497"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Homer ",
+                                  "lastName": "Bacanto",
+                                  "id": "628613d8c969502f391f8365"
+                              },
+                              "date": 1652963827,
+                              "status": "negative",
+                              "login": 1652963827,
+                              "logout": 1652964170,
+                              "id": "628639f374c3ffad2bac449f"
+                          },
+                          {
+                              "person": {
+                                  "firstName": "Jefferson",
+                                  "lastName": "Enterina",
+                                  "id": "6286296974c3ffad2bac441e"
+                              },
+                              "date": 1652963917,
+                              "status": "negative",
+                              "login": 1652963917,
+                              "logout": 1652964067,
+                              "id": "62863a4c74c3ffad2bac44a7"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "628625fa74c3ffad2bac43f0",
+                      "name": "College of Engineering & Technology (Room 204)",
+                      "type": "Room",
+                      "level": 3,
+                      "mobileNumber": "639772772186",
+                      "province": "Lanao Del Norte",
+                      "city": "Iligan City",
+                      "barangay": "San Jose",
+                      "street": "Quirino Street",
+                      "transactions": [
+                          {
+                              "person": {
+                                  "firstName": "Andrestine Luke",
+                                  "lastName": "Boter",
+                                  "id": "628613bcc969502f391f835e"
+                              },
+                              "date": 1652966054,
+                              "status": "low",
+                              "login": 1652966054,
+                              "id": "628642a574c3ffad2bac4559"
+                          }
+                      ]
+                  }
+              ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Get all Individuals",
+        "description": "Retrieves all Individuals registered in the application. (Responses are limited due to privacy issues)",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                      "id": "62861356c969502f391f8357",
+                      "accountId": "62861356c969502f391f8355",
+                      "firstName": "Keirth James",
+                      "lastName": "Nabasca",
+                      "middleName": "Biador",
+                      "suffix": "",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772186",
+                      "email": "keirthjames.nabasca@g.msuiit.edu.ph",
+                      "status": "positive",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "special": false,
+                      "transactions": [
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT",
+                                  "level": 1,
+                                  "id": "62861438c969502f391f836e"
+                              },
+                              "date": 1652962513,
+                              "status": "negative",
+                              "login": 1652962513,
+                              "logout": 1652965256,
+                              "id": "628634d174c3ffad2bac443f"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "College of Engineering & Technology",
+                                  "level": 2,
+                                  "id": "6286147cc969502f391f8379"
+                              },
+                              "date": 1652963117,
+                              "status": "negative",
+                              "login": 1652963117,
+                              "logout": 1652964750,
+                              "id": "6286372d74c3ffad2bac446f"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT Library",
+                                  "level": 3,
+                                  "id": "628614a8c969502f391f8384"
+                              },
+                              "date": 1652963689,
+                              "status": "negative",
+                              "login": 1652963689,
+                              "logout": 1652964263,
+                              "id": "6286396974c3ffad2bac4497"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "628613bcc969502f391f835e",
+                      "accountId": "628613bcc969502f391f835c",
+                      "firstName": "Andrestine Luke",
+                      "lastName": "Boter",
+                      "middleName": "Narag",
+                      "suffix": "",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772187",
+                      "email": "andrestineluke123.nabasca@g.msuiit.edu.ph",
+                      "status": "low",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "special": false,
+                      "transactions": [
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT",
+                                  "level": 1,
+                                  "id": "62861438c969502f391f836e"
+                              },
+                              "date": 1652962708,
+                              "status": "negative",
+                              "login": 1652962708,
+                              "logout": 1652965147,
+                              "id": "6286359474c3ffad2bac444f"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "College of Engineering & Technology (Room 204)",
+                                  "level": 3,
+                                  "id": "628625fa74c3ffad2bac43f0"
+                              },
+                              "date": 1652966054,
+                              "status": "low",
+                              "login": 1652966054,
+                              "id": "628642a574c3ffad2bac4559"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "628613d8c969502f391f8365",
+                      "accountId": "628613d8c969502f391f8363",
+                      "firstName": "Homer ",
+                      "lastName": "Bacanto",
+                      "middleName": "Simpsons",
+                      "suffix": "",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772183",
+                      "email": "homerbacanto123.nabasca@g.msuiit.edu.ph",
+                      "status": "high",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "special": true,
+                      "transactions": [
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT",
+                                  "level": 1,
+                                  "id": "62861438c969502f391f836e"
+                              },
+                              "date": 1652962917,
+                              "status": "negative",
+                              "login": 1652962917,
+                              "logout": 1652964950,
+                              "id": "6286366474c3ffad2bac445f"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "College of Engineering & Technology",
+                                  "level": 2,
+                                  "id": "6286147cc969502f391f8379"
+                              },
+                              "date": 1652963350,
+                              "status": "negative",
+                              "login": 1652963350,
+                              "logout": 1652964539,
+                              "id": "6286381574c3ffad2bac447f"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT Library",
+                                  "level": 3,
+                                  "id": "628614a8c969502f391f8384"
+                              },
+                              "date": 1652963827,
+                              "status": "negative",
+                              "login": 1652963827,
+                              "logout": 1652964170,
+                              "id": "628639f374c3ffad2bac449f"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "6286287774c3ffad2bac440b",
+                      "accountId": "6286287774c3ffad2bac4409",
+                      "firstName": "Jonas",
+                      "lastName": "Serino",
+                      "middleName": "Simpsons",
+                      "suffix": "",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772183",
+                      "email": "jonasserino123.nabasca@g.msuiit.edu.ph",
+                      "status": "high",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "special": false,
+                      "transactions": [
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT",
+                                  "level": 1,
+                                  "id": "62861438c969502f391f836e"
+                              },
+                              "date": 1652962611,
+                              "status": "negative",
+                              "login": 1652962611,
+                              "logout": 1652965243,
+                              "id": "6286353274c3ffad2bac4447"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "College of Engineering & Technology",
+                                  "level": 2,
+                                  "id": "6286147cc969502f391f8379"
+                              },
+                              "date": 1652963464,
+                              "status": "negative",
+                              "login": 1652963464,
+                              "logout": 1652964441,
+                              "id": "6286388874c3ffad2bac4487"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "6286296974c3ffad2bac441e",
+                      "accountId": "6286296974c3ffad2bac441c",
+                      "firstName": "Jefferson",
+                      "lastName": "Enterina",
+                      "middleName": "Simpsons",
+                      "suffix": "",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772183",
+                      "email": "jonasserino123.nabasca@g.msuiit.edu.ph",
+                      "status": "high",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "special": false,
+                      "transactions": [
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT",
+                                  "level": 1,
+                                  "id": "62861438c969502f391f836e"
+                              },
+                              "date": 1652963023,
+                              "status": "negative",
+                              "login": 1652963023,
+                              "logout": 1652964849,
+                              "id": "628636ce74c3ffad2bac4467"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "College of Engineering & Technology",
+                                  "level": 2,
+                                  "id": "6286147cc969502f391f8379"
+                              },
+                              "date": 1652963586,
+                              "status": "negative",
+                              "login": 1652963586,
+                              "logout": 1652964353,
+                              "id": "6286390174c3ffad2bac448f"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT Library",
+                                  "level": 3,
+                                  "id": "628614a8c969502f391f8384"
+                              },
+                              "date": 1652963917,
+                              "status": "negative",
+                              "login": 1652963917,
+                              "logout": 1652964067,
+                              "id": "62863a4c74c3ffad2bac44a7"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "62862ae174c3ffad2bac4431",
+                      "accountId": "62862ae174c3ffad2bac442f",
+                      "firstName": "Anthony James",
+                      "lastName": "Nabasca",
+                      "middleName": "Biador",
+                      "suffix": "",
+                      "gender": "Male",
+                      "birthDate": "October 23, 1997",
+                      "contactNumber": "639772772183",
+                      "email": "anthonyjames123.nabasca@g.msuiit.edu.ph",
+                      "status": "mid",
+                      "province": "Zamboanga del Sur",
+                      "city": "Pagadian City",
+                      "barangay": "Tiguma",
+                      "street": "Zone 4",
+                      "resident": false,
+                      "special": false,
+                      "transactions": [
+                          {
+                              "establishment": {
+                                  "name": "MSU-IIT",
+                                  "level": 1,
+                                  "id": "62861438c969502f391f836e"
+                              },
+                              "date": 1652962817,
+                              "status": "negative",
+                              "login": 1652962817,
+                              "logout": 1652965048,
+                              "id": "6286360174c3ffad2bac4457"
+                          },
+                          {
+                              "establishment": {
+                                  "name": "College of Engineering & Technology",
+                                  "level": 2,
+                                  "id": "6286147cc969502f391f8379"
+                              },
+                              "date": 1652963236,
+                              "status": "negative",
+                              "login": 1652963236,
+                              "logout": 1652964644,
+                              "id": "628637a474c3ffad2bac4477"
+                          }
+                      ]
+                  }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "/persons/{personId}": {
+    "get": {
+      "tags": [
+        "Individuals"
+      ],
+      "summary": "Get specific Individual",
+      "description": "Retrieves specific Individual.",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "personId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "id": "628613d8c969502f391f8365",
+                "accountId": "628613d8c969502f391f8363",
+                "firstName": "Homer ",
+                "lastName": "Bacanto",
+                "middleName": "Simpsons",
+                "suffix": "",
+                "gender": "Male",
+                "birthDate": "October 23, 1997",
+                "contactNumber": "639772772183",
+                "email": "homerbacanto123.nabasca@g.msuiit.edu.ph",
+                "status": "high",
+                "province": "Zamboanga del Sur",
+                "city": "Pagadian City",
+                "barangay": "Tiguma",
+                "street": "Zone 4",
+                "resident": false,
+                "special": true,
+                "transactions": [
+                    {
+                        "establishment": {
+                            "name": "MSU-IIT",
+                            "level": 1,
+                            "id": "62861438c969502f391f836e"
+                        },
+                        "date": 1652962917,
+                        "status": "negative",
+                        "login": 1652962917,
+                        "logout": 1652964950,
+                        "id": "6286366474c3ffad2bac445f"
+                    },
+                    {
+                        "establishment": {
+                            "name": "College of Engineering & Technology",
+                            "level": 2,
+                            "id": "6286147cc969502f391f8379"
+                        },
+                        "date": 1652963350,
+                        "status": "negative",
+                        "login": 1652963350,
+                        "logout": 1652964539,
+                        "id": "6286381574c3ffad2bac447f"
+                    },
+                    {
+                        "establishment": {
+                            "name": "MSU-IIT Library",
+                            "level": 3,
+                            "id": "628614a8c969502f391f8384"
+                        },
+                        "date": 1652963827,
+                        "status": "negative",
+                        "login": 1652963827,
+                        "logout": 1652964170,
+                        "id": "628639f374c3ffad2bac449f"
+                    }
+                ]
+            }
+          }
+        }
+      }
+    }
+  }
+},
+    "/establishments/{establishmentId}": {
+      "get": {
+        "tags": [
+          "Establishments"
+        ],
+        "summary": "Get specific Establishment",
+        "description": "Retrieves specific Establishment.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "establishmentId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "6286147cc969502f391f8379",
+                  "accountId": {
+                      "username": "coet1234",
+                      "id": "6286147bc969502f391f8375"
+                  },
+                  "name": "College of Engineering & Technology",
+                  "type": "School",
+                  "level": 2,
+                  "mobileNumber": "639772772186",
+                  "province": "Lanao Del Norte",
+                  "city": "Iligan City",
+                  "barangay": "San Jose",
+                  "street": "Quirino Street",
+                  "transactions": [
+                      {
+                          "person": {
+                              "firstName": "Keirth James",
+                              "lastName": "Nabasca",
+                              "id": "62861356c969502f391f8357"
+                          },
+                          "date": 1652963117,
+                          "status": "negative",
+                          "login": 1652963117,
+                          "logout": 1652964750,
+                          "id": "6286372d74c3ffad2bac446f"
+                      },
+                      {
+                          "person": {
+                              "firstName": "Anthony James",
+                              "lastName": "Nabasca",
+                              "id": "62862ae174c3ffad2bac4431"
+                          },
+                          "date": 1652963236,
+                          "status": "negative",
+                          "login": 1652963236,
+                          "logout": 1652964644,
+                          "id": "628637a474c3ffad2bac4477"
+                      },
+                      {
+                          "person": {
+                              "firstName": "Homer ",
+                              "lastName": "Bacanto",
+                              "id": "628613d8c969502f391f8365"
+                          },
+                          "date": 1652963350,
+                          "status": "negative",
+                          "login": 1652963350,
+                          "logout": 1652964539,
+                          "id": "6286381574c3ffad2bac447f"
+                      },
+                      {
+                          "person": {
+                              "firstName": "Jonas",
+                              "lastName": "Serino",
+                              "id": "6286287774c3ffad2bac440b"
+                          },
+                          "date": 1652963464,
+                          "status": "negative",
+                          "login": 1652963464,
+                          "logout": 1652964441,
+                          "id": "6286388874c3ffad2bac4487"
+                      },
+                      {
+                          "person": {
+                              "firstName": "Jefferson",
+                              "lastName": "Enterina",
+                              "id": "6286296974c3ffad2bac441e"
+                          },
+                          "date": 1652963586,
+                          "status": "negative",
+                          "login": 1652963586,
+                          "logout": 1652964353,
+                          "id": "6286390174c3ffad2bac448f"
+                      }
+                  ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/establishments/school/{establishmentId}/rooms": {
+    "post": {
+      "tags": [
+        "Establishments"
+      ],
+      "summary": "Add School Establishment Room",
+      "description": "Creates special Establishments which are rooms.",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "establishmentId",
+          "in": "path",
+          "required": true,
+          "description": "School Establishment ID"
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "name": "Room-214"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "College of Engineering & Technology (Room-214) added as a room in College of Engineering & Technology"
+              }
+          }
+        }
+      }
+    }
+  }
+  },
+  "/establishments/school/{establishmentId}/teachers": {
+    "post": {
+      "tags": [
+        "Establishments"
+      ],
+      "summary": "Add School Establishment Teacher",
+      "description": "Adds a teacher to a School Establishment.",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "establishmentId",
+          "in": "path",
+          "required": true,
+          "description": "School Establishment ID"
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "personId": {
+                  "type": "string",
+                  "description": "Registered Individual ID"
+                }
+              },
+              "required": [
+                "personId"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "personId": "62861356c969502f391f8357"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "Person has been added as teacher in College of Engineering & Technology"
+              }
+          }
+        }
+      }
+    }
+  }
+  },
+  "/transactions/login": {
+    "post": {
+      "tags": [
+        "Transactions"
+      ],
+      "summary": "Add Transaction",
+      "description": "Adds an Individual Transaction within an Establishment.",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "personId": {
+                  "type": "string",
+                  "description": "Registered Individual ID"
+                },
+                "establishmentId": {
+                  "type": "string",
+                  "description": "Registered Establishment ID"
+                }
+              },
+              "required": [
+                "personId",
+                "establishmentId"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "personId": "62861356c969502f391f8357",
+                  "establishmentId": "62861438c969502f391f836e"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "Transaction saved.",
+                "data": {
+                  "person": "62861356c969502f391f8357",
+                  "establishment": "62861438c969502f391f836e",
+                  "date": 1652963117,
+                  "status": "negative",
+                  "login": 1652963117,
+                  "id": "6286372d74c3ffad2bac446f"
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+  },
+  "/transactions/login/special/{individualId}": {
+    "post": {
+      "tags": [
+        "Transactions"
+      ],
+      "summary": "Add Transaction via Teacher",
+      "description": "Adds an Individual Transaction within a School Establishment through a special Individual (Teacher).",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "individualId",
+          "in": "path",
+          "required": true,
+          "description": "Individual ID (Must be a registered Teacher in the passed School Establishment)"
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "personId": {
+                  "type": "string",
+                  "description": "Registered Individual ID"
+                },
+                "establishmentId": {
+                  "type": "string",
+                  "description": "Registered Establishment ID"
+                }
+              },
+              "required": [
+                "personId",
+                "establishmentId"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "personId": "62861356c969502f391f8357",
+                  "establishmentId": "62861438c969502f391f836e"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "Transaction saved.",
+                "data": {
+                  "person": "62861356c969502f391f8357",
+                  "establishment": "62861438c969502f391f836e",
+                  "date": 1652963117,
+                  "status": "negative",
+                  "login": 1652963117,
+                  "id": "6286372d74c3ffad2bac446f"
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+  },
+  "/transactions/logout/{transactionId}": {
+    "put": {
+      "tags": [
+        "Transactions"
+      ],
+      "summary": "Logout Transaction",
+      "description": "Updates a Transaction by adding a logout field.",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "transactionId",
+          "in": "path",
+          "required": true,
+          "description": "Trasaction ID"
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "establishmentId": {
+                  "type": "string",
+                  "description": "Registered Establishment ID"
+                }
+              },
+              "required": [
+                "establishmentId"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "establishmentId": "62861438c969502f391f836e"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "Person logged out.",
+                "data": {
+                  "person": "62861356c969502f391f8357",
+                  "establishment": "62861438c969502f391f836e",
+                  "date": 1652963117,
+                  "status": "negative",
+                  "login": 1652963117,
+                  "id": "6286372d74c3ffad2bac446f",
+                  "logout": 1652964750
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+  },
+  "/transactions/logout/special/{individualId}": {
+    "put": {
+      "tags": [
+        "Transactions"
+      ],
+      "summary": "Logout Transaction via Teacher",
+      "description": "Updates a Transaction by adding a logout field through a special Individual (Teacher).",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "individualId",
+          "in": "path",
+          "required": true,
+          "description": "Individual ID (Must be a registered Teacher in the passed School Establishment)"
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "establishmentId": {
+                  "type": "string",
+                  "description": "Registered Establishment ID"
+                }
+              },
+              "required": [
+                "establishmentId"
+              ]
+            },
+            "examples": {
+              "example": {
+                "value": {
+                  "establishmentId": "62861438c969502f391f836e"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "Person logged out.",
+                "data": {
+                  "person": "62861356c969502f391f8357",
+                  "establishment": "62861438c969502f391f836e",
+                  "date": 1652963117,
+                  "status": "negative",
+                  "login": 1652963117,
+                  "id": "6286372d74c3ffad2bac446f",
+                  "logout": 1652964750
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+  },
+  "/tag/positive/{individualId}": {
+    "put": {
+      "tags": [
+        "Admins"
+      ],
+      "summary": "Tag Positive",
+      "description": "Tags an Individual as 'positive' for the virus. This would also tag Individuals which might have been in contact with the infected Individual for the last 15 days.",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "individualId",
+          "in": "path",
+          "required": true,
+          "description": "Registered Individual ID"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "Tagged 62861356c969502f391f8357 as positive"
+              }
+          }
+        }
+      }
+    }
+  }
+  },
+  "/tag/negative/{individualId}": {
+    "put": {
+      "tags": [
+        "Admins"
+      ],
+      "summary": "Tag Negative",
+      "description": "Untags an infected Individual into 'negative'.",
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "individualId",
+          "in": "path",
+          "required": true,
+          "description": "Registered Individual ID"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "Untagged 62861356c969502f391f8357 into negative"
+              }
+          }
+        }
+      }
+    }
+  }
+  }
+},
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "AdminToken": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      },
+      "IndividualToken": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      },
+      "EstablishmentToken": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
+}
